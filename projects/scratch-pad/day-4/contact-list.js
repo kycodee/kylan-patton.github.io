@@ -20,7 +20,7 @@
  *         returns the contact object if found in the contacts-list, or, 
  *         undefined if the fullName does not match any contacts in the list.
  *      4. removeContact(contact): takes a contact object to be removed from 
- *         the contact-list.
+ *         the contact-list. RESEARCH SPLICE METHOD
  *      5. add a printAllContactNames() Function to your makeContactList() factory. The printAllContactNames() Function should 
  *         return a String formated with all the full-names of the separated 
  *         with a line-break, like so:
@@ -36,6 +36,12 @@
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) {
 
+    var contactie = {};
+    contactie.id = id;
+    contactie.nameFirst = nameFirst;
+    contactie.nameLast = nameLast;
+
+    return contactie
 } 
 
 
@@ -43,12 +49,30 @@ function makeContactList() {
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts;
+    var contacts = [];
     
     return {
         // we implemented the length api for you //
         length: function() {
             return contacts.length;
+        },
+        addContact: function(contact) {
+            contacts.push(contact)
+        },
+        findContact: function(fullName){
+            for (var i = 0; i < contacts.length; i++){
+                //contacts i accesses every object within the array now i need to access the fullName in  object
+                //create a conditional statement for if fullname = object.fullname
+                if (contacts[i].nameFirst + " " + contacts[i].nameLast === fullName){
+                    return contacts[i];
+                }
+            }
+        },
+        removeContact: function(contact) {
+            return contacts.splice(contact, 1)
+        },
+        printAllContactNames: function(){
+            
         }
     }
 }

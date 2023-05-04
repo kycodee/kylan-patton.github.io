@@ -12,8 +12,10 @@
  */
 function printArrayValues(array) {
   // YOUR CODE BELOW HERE //
-  
-  
+  for(var i = 0; i <= array.length - 1; i++){// use a for loop to loop over array
+    //print the values of array using console.log
+    console.log(array[i])
+  }
   
   
   // YOUR CODE ABOVE HERE //
@@ -25,7 +27,10 @@ function printArrayValues(array) {
  */
 function printArrayValuesInReverse(array) {
   // YOUR CODE BELOW HERE //
-  
+  for(var i = array.length - 1; i >= 0 ; i--){// use a for loop to dp a reverse loop over array
+    //print the values of array using console.log
+    console.log(array[i])
+  }
   
   
   
@@ -38,8 +43,14 @@ function printArrayValuesInReverse(array) {
 function getObjectKeys(object) {
   // YOUR CODE BELOW HERE //
   
-  
-  
+   var arr = []//create an array to add the object keys to
+  for (var key in object){// create a for in loop to get the keys in object
+    arr.push(key)//use the push method to add the object keys to arr 
+    
+  }
+
+  return arr
+ 
   
   // YOUR CODE ABOVE HERE //
 }
@@ -50,7 +61,9 @@ function getObjectKeys(object) {
  */
 function printObjectKeys(object) {
   // YOUR CODE BELOW HERE //
-  
+  for(let key in object){
+    console.log(key)
+  }
   
   
   
@@ -62,8 +75,7 @@ function printObjectKeys(object) {
  */
 function getObjectValues(object) {
   // YOUR CODE BELOW HERE //
-  
-  
+    return Object.values(object)
   
   
   // YOUR CODE ABOVE HERE //
@@ -75,7 +87,9 @@ function getObjectValues(object) {
  */
 function printObjectValues(object) {
   // YOUR CODE BELOW HERE //
-  
+  for(let key in object){
+    console.log(object[key])
+  }
   
   
   
@@ -87,7 +101,8 @@ function printObjectValues(object) {
  */
 function getObjectLength(object) {
   // YOUR CODE BELOW HERE //
-  
+  var objLength = Object.keys(object).length;
+  return objLength;
   
   
   
@@ -100,7 +115,10 @@ function getObjectLength(object) {
  */
 function printObjectValuesInReverse(object) {
   // YOUR CODE BELOW HERE //
-  
+  var array = Object.values(object)
+  for(var i = array.length - 1; i >= 0;i--){
+    console.log(array[i])
+  }
   
   
   

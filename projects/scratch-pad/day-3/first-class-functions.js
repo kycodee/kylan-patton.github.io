@@ -13,7 +13,9 @@
  */
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
+    return function(givenn){
+        return givenn > base
+    }
     
     
     
@@ -27,8 +29,14 @@ function createGreaterThanFilter(base) {
  */
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
-    
+    // create a function that tests whether a given value is less than the base
+    return function(given){
+        if(given < base){
+            return true
+        } else if(given > base){
+            return false
+        }
+    }
     
     
     // YOUR CODE ABOVE HERE //
@@ -41,7 +49,13 @@ function createLessThanFilter(base) {
  */
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
-    
+    return function(givennn){
+        if(givennn[0].toLowerCase() === startsWith.toLowerCase()){
+            return true
+        } else if(givennn[0].toLowerCase() !== startsWith.toLowerCase()) {
+            return false
+        }
+    }
     
     
     
@@ -55,7 +69,13 @@ function createStartsWithFilter(startsWith) {
  */
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
-    
+    return function(string){
+        if(string[string.length - 1].toLowerCase() === endsWith.toLowerCase()){
+            return true
+        } else if(string[string.length - 1].toLowerCase() !== endsWith.toLowerCase()) {
+            return false
+        }
+    }
     
     
     
@@ -71,8 +91,11 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
-    
-    
+    var argie = []
+    for(var i = 0; i < strings.length; i++){
+        argie.push(modify(strings[i]))
+    }
+    return argie
     
     
     // YOUR CODE ABOVE HERE //
@@ -89,8 +112,12 @@ function modifyStrings(strings, modify) {
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
-    
-    
+    for(var i = 0;i < strings.length;i++){
+        if(test(strings[i]) === false){
+            return false
+        }
+    }
+    return true
     
     
     // YOUR CODE ABOVE HERE //
