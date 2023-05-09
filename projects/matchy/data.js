@@ -13,7 +13,7 @@
 //////////////////////////////////////////////////////////////////////
 var animal = {};
 animal.species = 'horse';
-animal['name'] = 'thourougbred';
+animal['name'] = 'Jim';
 animal.noises = [];
 console.log(animal);
 
@@ -93,11 +93,11 @@ function getRandom(animalss){
 for(var i = 0; i < animalss.length; i++){
   return animalss[Math.floor(Math.random() * i)] 
 }
-friends.push(animals[getRandom(animals)])
+friends.push(animalss[getRandom()].name)
 console.log(friends)
 }
-cat['friends'] = friends
-console.log(friends)
+cat['friends'] = friends;
+console.log(cat)
 
 
 /**

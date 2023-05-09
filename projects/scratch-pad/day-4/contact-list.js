@@ -72,7 +72,14 @@ function makeContactList() {
             return contacts.splice(contact, 1)
         },
         printAllContactNames: function(){
-            
+            var stringie = []
+            for(var i = 0; i < contacts.length; i++){
+                stringie.push(contacts[i].nameFirst + ' ' + contacts[i].nameLast)
+                for(var j = 0;j < stringie.length;j++){
+                    
+                }
+            }
+            return stringie.join('\n')
         }
     }
 }
