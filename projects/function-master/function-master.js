@@ -152,22 +152,44 @@ function isFriend(name, object) {
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function nonFriends(name, array) {
-    var newArr = []
-    var leArray = []
-for(var i = 0;i < data.length;i++){
-  leArray.push(data[i].name)
-}
-    for(var i = 0;i < array.length;i++){
-            for(var j = 0;j < array[i].friends.length;j++){
-                if(array[i].friends[j] !== name){
+function nonFriends(name, arr) {
+//     var newArr = []
+//     var leArray = []
+// for(var i = 0;i < data.length;i++){
+//   leArray.push(data[i].name)
+// }
+//     for(var i = 0;i < array.length;i++){
+//             for(var j = 0;j < array[i].friends.length;j++){
+//                 if(array[i].friends[j] !== name){
                    
-                }
+//                 }
             
-        } 
+//         } 
         
+//     }
+
+var nameList = [];
+var result = [];
+var current = null;
+for(var i=0; i<arr.length; i++){
+    if(name === arr[i].name){
+        current = arr[i];
+    }else{
+        nameList.push(arr[i].name);
     }
-    
+}
+
+if(current === null){
+    return nameList;
+}
+
+for(var i=0; i<nameList.length; i++){
+    if(current.friends.indexOf(nameList[i]) == -1){
+        result.push(nameList[i]);
+    }
+}
+
+return result;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -175,7 +197,13 @@ for(var i = 0;i < data.length;i++){
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
+   if(object[key] === undefined){
+    object[key] = value
+    return object
+   } else if(object[key] !== undefined){
+    object[key] = value
+    return object
+   }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -183,7 +211,13 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-
+    for(var i = 0; i < array.length;i++){
+        if(object[array[i]] !== undefined && array.length > 0){
+            delete object[array[i]]
+            
+        }
+    }
+    return object
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -191,7 +225,16 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
+    
 
+    let uniqueChars = [];
+    array.forEach((c) => {
+        if (!uniqueChars.includes(c)) {
+            uniqueChars.push(c);
+        }
+    });
+    return uniqueChars
+    
 }
 
 //////////////////////////////////////////////////////////////////////
