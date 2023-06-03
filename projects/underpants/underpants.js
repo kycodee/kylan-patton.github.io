@@ -367,7 +367,7 @@ _.partition = function(array,func){
 */
 _.map = function(collection,func){
     let result = []
-    let result2 = []
+
     for(var i = 0; i < collection.length;i++){
         if(Array.isArray(collection)){
             func(collection[i],i,collection)
@@ -578,10 +578,7 @@ _.reduce = function(array, func, seed){
     }
 
     return result;
-
-
-
-
+    
 }
 
 /** _.extend

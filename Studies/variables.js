@@ -41,15 +41,25 @@ console.log(state) //prints 'Louisiana' to the console
 // Let is a keyword used to declare a variable that may be reassigned.
 let school = 'Tulane'
 console.log(school) //prints 'Tulane' to the console
+if(school === "Tulane"){
+    let parish = 'Orleans'
+}
+console.log(parish)//Since let is block scoped, you will get a ReferenceError: parish is not defined
+
 
 //Const
-// Const is a keyword used to declare a variable that will remain the same.
+// Const is a keyword used to declare a variable that will remain the same. It can not be reassigned
 const bootcamp = 'Op Spark'
-console.log(bootcamp) //prints 'Op Spark' to the console
+bootcamp = 'National Coding'
+console.log(bootcamp) //returns TypeError: Assignment to constant variable
+if(school === "Tulane"){
+    const hometown = 'New Orleans'
+}
+console.log(hometown)//Since const is block scoped, you will get a ReferenceError: hometown is not defined
 
 //Hoisting
-//Hoisting is a automatic feauture that Javascript has to place variable at the top of their scope.
-var greeting = 'Hello OpSparker!' //this will be placed at the top of the global scope
-console.log(greeting) // prints 'Hello OpSparker!' to the console
+//Hoisting is a automatic feauture that Javascript has to place variables at the top of their scope.
+console.log(greeting); // => undefined
+var greeting = "Hello OpSparker!";
 
 
